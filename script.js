@@ -73,7 +73,6 @@ function filterWorkers() {
 }
 
 function contactWorker(name) {
-    // In a real app, this would open a modal or redirect
     alert(`Contact details request for ${name} has been logged. Please Sign Up to view phone numbers.`);
 }
 
@@ -81,6 +80,22 @@ document.getElementById('workerForm').addEventListener('submit', function(e) {
     e.preventDefault();
     alert("Application Submitted! Verification Pending.");
     this.reset();
+});
+
+// --- NEW CODE: Mobile Menu Toggle Logic ---
+const menuBtn = document.querySelector('.menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+// Toggle menu on click
+menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+// Close menu when a link is clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
 });
 
 // Initial Load
