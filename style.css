@@ -74,7 +74,7 @@ ul { list-style: none; }
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000; /* High Z-index */
 }
 
 .logo {
@@ -93,7 +93,7 @@ ul { list-style: none; }
     padding: 8px 20px;
     border-radius: 6px;
 }
-.menu-btn { display: none; font-size: 1.5rem; cursor: pointer; }
+.menu-btn { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
 
 /* --- Hero Section --- */
 .hero {
@@ -273,10 +273,29 @@ footer { background: var(--primary); color: #94a3b8; padding: 60px 0 0; }
 .footer-links ul li { margin-bottom: 10px; }
 .bottom-bar { background: #020617; text-align: center; padding: 20px; font-size: 0.9rem; }
 
-/* --- Responsive --- */
+/* --- Responsive & Mobile Menu Logic --- */
 @media (max-width: 768px) {
-    .nav-links { display: none; }
     .menu-btn { display: block; }
+    
+    .nav-links {
+        display: none; /* Hidden by default */
+        position: absolute;
+        top: 100%; /* Position directly below the navbar */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+        gap: 20px;
+    }
+
+    /* This class is added by JS to show the menu */
+    .nav-links.active {
+        display: flex; 
+    }
+
     .hero h1 { font-size: 2.5rem; }
     .search-box { flex-direction: column; width: 100%; border-radius: 20px; }
     .input-group { width: 100%; border-right: none; border-bottom: 1px solid #eee; padding: 10px; }
