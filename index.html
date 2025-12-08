@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanHands | Trusted Domestic Help</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Urban<span>Hands</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#find-help">Find Help</a></li>
+            <li><a href="#register" class="cta-link">Join as Worker</a></li>
+        </ul>
+        <div class="menu-btn"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge-pill">Connect. Verify. Trust.</span>
+            <h1>Bridging Help and Homes</h1>
+            <p class="tagline">A trusted way to find trusted help.</p>
+            <p class="sub-desc">We connect urban families with verified maids, cleaners, and cooks using a transparent rating system.</p>
+            <div class="hero-btns">
+                <a href="#find-help" class="btn btn-primary"><i class="fas fa-search"></i> Find a Worker</a>
+                <a href="#register" class="btn btn-outline">I want a Job</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats & Benefits -->
+    <section id="how-it-works" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose UrbanHands?</h2>
+                <p>Solving the struggle of reliability and fair wages.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fas fa-user-check"></i></div>
+                    <h3>Verified Database</h3>
+                    <p>Every worker submits ID proof (Adhaar) and background details before listing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fas fa-star"></i></div>
+                    <h3>Smart Ratings</h3>
+                    <p>Our Red-Blue-Green system helps you identify Premium (4.5+) vs New/Low rated workers instantly.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Fair & Dignified</h3>
+                    <p>We empower workers with better wages while giving employers peace of mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Listings Section -->
+    <section id="find-help" class="listings">
+        <div class="container">
+            <div class="section-header">
+                <h2>Find Help Near You</h2>
+                <p>Search by area or role. Look for the Green Badge for premium service.</p>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="search-wrapper">
+                <div class="search-box">
+                    <div class="input-group">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="areaInput" placeholder="Area (e.g. Dwarka, Bandra)">
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-broom"></i>
+                        <select id="roleSelect">
+                            <option value="all">All Services</option>
+                            <option value="Maid">House Maid</option>
+                            <option value="Cleaner">Deep Cleaner</option>
+                            <option value="Cook">Home Cook</option>
+                            <option value="Sweeper">Sweeper</option>
+                        </select>
+                    </div>
+                    <button onclick="filterWorkers()" class="btn btn-search">Search</button>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="rating-legend">
+                <div class="legend-item"><span class="dot green"></span> Premium (4.5+)</div>
+                <div class="legend-item"><span class="dot blue"></span> Good (3.0 - 4.4)</div>
+                <div class="legend-item"><span class="dot red"></span> Low/New (< 3.0)</div>
+            </div>
+
+            <!-- Grid -->
+            <div class="worker-grid" id="workerContainer">
+                <!-- JS Injected Cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register" class="register">
+        <div class="container">
+            <div class="split-layout">
+                <div class="text-side">
+                    <h2>Join as a Worker</h2>
+                    <p>Are you looking for domestic work? Register for free.</p>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check"></i> 100% Free Registration</li>
+                        <li><i class="fas fa-check"></i> Get calls from decent families</li>
+                        <li><i class="fas fa-check"></i> Increase your earnings</li>
+                    </ul>
+                </div>
+                <div class="form-side">
+                    <form id="workerForm">
+                        <h3>Worker Registration</h3>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" placeholder="98765..." required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Area</label>
+                                <input type="text" placeholder="City/Area" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Skill</label>
+                                <select>
+                                    <option>Maid</option>
+                                    <option>Cleaner</option>
+                                    <option>Cook</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Upload Adhaar (ID Proof)</label>
+                            <input type="file" class="file-input" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary full-width">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <h3>Urban<span>Hands</span></h3>
+                <p>More than an app, it is a bridge between need and opportunity.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Future Scope</h4>
+                <ul>
+                    <li>Training Modules</li>
+                    <li>Police Verification API</li>
+                    <li>Electricians & Plumbers</li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-envelope"></i> help@urbanhands.com</p>
+                <p><i class="fas fa-phone"></i> +91 99999 88888</p>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            &copy; 2024 UrbanHands. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
